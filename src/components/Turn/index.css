@@ -1,0 +1,7 @@
+.turnBox {
+    position: fixed;
+    width: 800px;
+    height: 20%;
+    top: 22vh;
+    left: 50vh;
+}

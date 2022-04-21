@@ -1,0 +1,17 @@
+.row {
+    height: 20vh;
+    background-color: rgb(254, 96, 96);
+}
+
+/* 中间的row因为包含info box所以需要单独处理 */
+.row-center {
+    height: 60vh;
+    background-color: blue;
+}
+
+
+.col-item {
+    height: 100%;
+    border: 1px solid black;
+    background-color: rgb(150, 197, 123);
+}

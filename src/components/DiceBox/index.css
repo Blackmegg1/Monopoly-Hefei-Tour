@@ -1,0 +1,8 @@
+#dice {
+    position: fixed !important;
+    left: 82vh;
+    top: 35vh;
+    width: 200px;
+    height: 200px;
+    /* background-color: #514e4e */
+}
