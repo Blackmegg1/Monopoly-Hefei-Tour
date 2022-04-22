@@ -21,16 +21,16 @@ export default class DiceBox extends Component {
         });
     }
 
-    tick() {
+    roll() {
         this.dice1.randowDraw()
             .then(res => {
-                this.setState({ dot: res })
+                this.props.getDiceNum(res)
             })
     }
 
     render() {
         return (
-            <div id='dice' onClick={() => { this.tick() }}>
+            <div id='dice' onClick={() => { this.roll() }}>
                 <canvas id="canvas" width="200" height="200"></canvas>
             </div>
         )
