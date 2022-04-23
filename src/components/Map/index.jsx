@@ -55,8 +55,8 @@ export default class Map extends Component {
     let newMapData = this.state.mapData
     let oldDiceNum = this.state.diceNum
     newMapData[oldDiceNum].visible = 'hidden'
-    newMapData[oldDiceNum + n].visible = 'visible'
-    this.setState({ diceNum: n + oldDiceNum, mapData: newMapData })
+    newMapData[(oldDiceNum + n) % 30].visible = 'visible'
+    this.setState({ diceNum: (n + oldDiceNum) % 30, mapData: newMapData })
   }
 
   render() {
