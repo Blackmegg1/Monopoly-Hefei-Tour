@@ -6,12 +6,12 @@
 /* 中间的row因为包含info box所以需要单独处理 */
 .row-center {
     height: 60vh;
-    background-color: blue;
+    background-color: rgba(3, 104, 10, 0.512);
 }
 
 
 .col-item {
     height: 100%;
     border: 1px solid black;
-    background-color: rgb(150, 197, 123);
+    /* background-color: rgb(150, 197, 123); */
 }

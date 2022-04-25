@@ -21,6 +21,7 @@ export default class DiceBox extends Component {
         });
     }
 
+
     roll() {
         this.dice1.randowDraw()
             .then(res => {
@@ -28,9 +29,17 @@ export default class DiceBox extends Component {
             })
     }
 
+    debounce(func, ms) {
+        let timeout;
+        return function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, arguments), ms);
+        };
+    }
+
     render() {
         return (
-            <div id='dice' onClick={() => { this.roll() }}>
+            <div id='dice' onClick={() => { this.roll()  }}>
                 <canvas id="canvas" width="200" height="200"></canvas>
             </div>
         )
@@ -125,7 +134,7 @@ Dice.prototype = {
         }.bind(this))
     },
     randowDraw: function () {
-        var time = 100, x = 0;
+        var time = 50, x = 0;
         var self = this;
         return new Promise(function (resolve, reject) {
             self.timer = setInterval(function () {

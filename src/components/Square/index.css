@@ -2,3 +2,18 @@
     height: 100%;
     width: 100%;
 }
+
+.cardUl {
+    position: absolute;
+    padding: 0;
+    width: auto;
+    height: 40%;
+}
+
+.cardLi {
+    float: left;
+    width: 50%;
+    height: 50%;
+    margin: 6px 0;
+    list-style: none;
+}

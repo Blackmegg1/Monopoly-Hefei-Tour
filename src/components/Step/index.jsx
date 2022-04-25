@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Steps } from 'antd';
 
+
 import './index.css'
 
 const { Step } = Steps;
@@ -10,11 +11,10 @@ export default class Turn extends Component {
     render() {
         return (
             <div className='turnBox'>
-                <Steps current={2}>
-                    <Step title="Player1" />
-                    <Step title="Player2" />
-                    <Step title="Player3" />
-                    <Step title="Player4" />
+                <Steps current={this.props.currentPlayerNum} labelPlacement={'vertical'}>
+                    {Array(this.props.players).fill(undefined).map((value, index) => {
+                        return (<Step key={index} title={'Player' + (index + 1)} />)
+                    })}
                 </Steps>
             </div>
         )

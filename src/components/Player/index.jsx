@@ -8,7 +8,9 @@ export default class Player extends Component {
     render() {
         return (
             <div style={{ 'visibility': this.props.visible }}>
-                <Avatar id='playerdefault' icon={<UserOutlined />} />
+                <Avatar style={{ 'backgroundColor': `${this.props.userData.userColor}` }}
+                    icon={<UserOutlined />}
+                />
             </div>
         )
     }

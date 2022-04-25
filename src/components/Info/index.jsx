@@ -1,22 +1,9 @@
 import React, { Component } from 'react'
-import { List } from 'antd';
+import { List, Tag } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 import './index.css'
 
-const testData = [
-    {
-        title: 'Player1',
-    },
-    {
-        title: 'Player2',
-    },
-    {
-        title: 'Player3',
-    },
-    {
-        title: 'Player4',
-    },
-];
 
 //在Main box中显示目前每个玩家的资产
 export default class Info extends Component {
@@ -28,13 +15,15 @@ export default class Info extends Component {
                     bordered={true}
                     size='small'
                     itemLayout="horizontal"
-                    dataSource={testData}
+                    dataSource={this.props.userData}
                     renderItem={item => (
                         <List.Item>
                             <List.Item.Meta
-                                title={item.title}
+                                title={'Player' + (item.num + 1)}
                                 description="有50000￥"
                             />
+                            <Tag icon={<UserOutlined />} color={item.userColor}>
+                            </Tag>
                         </List.Item>
                     )}
                 />
