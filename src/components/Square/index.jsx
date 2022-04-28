@@ -16,22 +16,22 @@ export default class Square extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userData: this.props.userData
+            price: this.props.num * 100
         }
     }
-
+    
     render() {
         return (
             <Card
-                title={`编号:${this.props.num}`}
+                title={`编号:${this.props.num},价格:${this.props.num * 100}$`}
                 bordered={false}
                 className="Square"
                 headStyle={{ 'fontSize': '14px', 'padding': '1px' }}
                 bodyStyle={{ 'padding': '5px', 'height': "12vh" }}
-                // bodyStyle={{ 'background': `url(${house1}) no-repeat` }}
+            // bodyStyle={{ 'background': `url(${house1}) no-repeat` }}
             >
                 <ul className='cardUl'>
-                    {this.state.userData.map((value, index) => {
+                    {this.props.userData.map((value, index) => {
                         return (<li className='cardLi' key={index}>
                             <Player visible={this.props.visible[index]} userData={value} />
                         </li>)

@@ -42,10 +42,10 @@ let mapData = [
 ]
 
 let userData = [
-  { num: 0, userColor: '#87d068' },
-  { num: 1, userColor: '#68c4d0' },
-  { num: 2, userColor: '#d06868' },
-  { num: 3, userColor: '#faad14' }
+  { num: 0, userColor: '#87d068', price: 50000 },
+  { num: 1, userColor: '#68c4d0', price: 40000 },
+  { num: 2, userColor: '#d06868', price: 30000 },
+  { num: 3, userColor: '#faad14', price: 20000 }
 ]
 // 地图组件
 export default class Map extends Component {
@@ -58,6 +58,12 @@ export default class Map extends Component {
       currentPlayerNum: 0,
       players: userData.length //玩家数量
     }
+  }
+
+  changePrice(num, gap) {
+    let newUserData = this.state.userData
+    newUserData[num].price += gap
+    this.setState(newUserData)
   }
 
   getDiceNum(n) {
@@ -80,7 +86,7 @@ export default class Map extends Component {
             this.state.mapData.map((v, k) => {
               if (k < 12) {
                 return (<Col span={2} className='col-item' key={v.num}>
-                  <Square num={v.num} visible={v.visible} userData={userData} />
+                  <Square num={v.num} visible={v.visible} userData={userData} currentPlayerNum={this.state.currentPlayerNum} />
                 </Col>)
               }
             })
@@ -97,7 +103,7 @@ export default class Map extends Component {
                   return (
                     <Row className='row' key={v.num}>
                       <Col span={24} className='col-item'>
-                        <Square num={v.num} visible={v.visible} userData={userData} />
+                        <Square num={v.num} visible={v.visible} userData={userData} currentPlayerNum={this.state.currentPlayerNum} />
                       </Col>
                     </Row>)
                 }
@@ -121,7 +127,7 @@ export default class Map extends Component {
                   return (
                     <Row className='row' key={v.num}>
                       <Col span={24} className='col-item'>
-                        <Square num={v.num} visible={v.visible} userData={userData} />
+                        <Square num={v.num} visible={v.visible} userData={userData} currentPlayerNum={this.state.currentPlayerNum} />
                       </Col>
                     </Row>
                   )
@@ -138,7 +144,7 @@ export default class Map extends Component {
             this.state.mapData.slice(15, 27).reverse().map((v, k) => {
               if (k < 13) {
                 return (<Col span={2} className='col-item' key={v.num}>
-                  <Square num={v.num} visible={v.visible} userData={userData} />
+                  <Square num={v.num} visible={v.visible} userData={userData} currentPlayerNum={this.state.currentPlayerNum} />
                 </Col>)
               }
             })
