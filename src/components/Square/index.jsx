@@ -16,17 +16,35 @@ export default class Square extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            price: this.props.num * 100
+            owner: -1,
+            ownerColor: ''
         }
     }
-    
+
+    componentDidUpdate(prevp, prevs) {
+        if (this.props.visible[prevp.currentPlayerNum] === 'visible' && this.state.owner === -1) {
+            this.props.changeAssets([prevp.currentPlayerNum], [-(this.props.num * 100)])
+            if (this.state === prevs) {
+                this.setState({
+                    owner: prevp.currentPlayerNum,
+                    ownerColor: this.props.userData[prevp.currentPlayerNum].userColor
+                })
+            }
+        }
+        else if (this.props.visible[prevp.currentPlayerNum] === 'visible' && this.props.currentPlayerNum !== prevp.currentPlayerNum && prevs.owner !== prevp.currentPlayerNum) {
+            this.props.changeAssets([prevp.currentPlayerNum, prevs.owner], [-(this.props.num * 50), this.props.num * 50])
+            console.log('prevp', prevp)
+            console.log('props', this.props)
+        }
+    }
+
     render() {
         return (
             <Card
                 title={`编号:${this.props.num},价格:${this.props.num * 100}$`}
                 bordered={false}
                 className="Square"
-                headStyle={{ 'fontSize': '14px', 'padding': '1px' }}
+                headStyle={{ 'fontSize': '14px', 'padding': '1px', 'backgroundColor': `${this.state.ownerColor}` }}
                 bodyStyle={{ 'padding': '5px', 'height': "12vh" }}
             // bodyStyle={{ 'background': `url(${house1}) no-repeat` }}
             >

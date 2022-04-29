@@ -43,10 +43,11 @@ let mapData = [
 
 let userData = [
   { num: 0, userColor: '#87d068', price: 50000 },
-  { num: 1, userColor: '#68c4d0', price: 40000 },
-  { num: 2, userColor: '#d06868', price: 30000 },
-  { num: 3, userColor: '#faad14', price: 20000 }
+  { num: 1, userColor: '#68c4d0', price: 50000 },
+  { num: 2, userColor: '#d06868', price: 50000 },
+  { num: 3, userColor: '#faad14', price: 50000 }
 ]
+
 // 地图组件
 export default class Map extends Component {
   constructor(props) {
@@ -60,9 +61,12 @@ export default class Map extends Component {
     }
   }
 
-  changePrice(num, gap) {
+  changeAssets(palyerNum, gap) {
     let newUserData = this.state.userData
-    newUserData[num].price += gap
+    palyerNum.map((v, i) => {
+      newUserData[v].price += gap[i]
+      return v
+    })
     this.setState(newUserData)
   }
 
@@ -86,7 +90,12 @@ export default class Map extends Component {
             this.state.mapData.map((v, k) => {
               if (k < 12) {
                 return (<Col span={2} className='col-item' key={v.num}>
-                  <Square num={v.num} visible={v.visible} userData={userData} currentPlayerNum={this.state.currentPlayerNum} />
+                  <Square
+                    num={v.num}
+                    visible={v.visible}
+                    userData={userData}
+                    currentPlayerNum={this.state.currentPlayerNum}
+                    changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
                 </Col>)
               }
             })
@@ -103,7 +112,12 @@ export default class Map extends Component {
                   return (
                     <Row className='row' key={v.num}>
                       <Col span={24} className='col-item'>
-                        <Square num={v.num} visible={v.visible} userData={userData} currentPlayerNum={this.state.currentPlayerNum} />
+                        <Square
+                          num={v.num}
+                          visible={v.visible}
+                          userData={userData}
+                          currentPlayerNum={this.state.currentPlayerNum}
+                          changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
                       </Col>
                     </Row>)
                 }
@@ -127,7 +141,12 @@ export default class Map extends Component {
                   return (
                     <Row className='row' key={v.num}>
                       <Col span={24} className='col-item'>
-                        <Square num={v.num} visible={v.visible} userData={userData} currentPlayerNum={this.state.currentPlayerNum} />
+                        <Square
+                          num={v.num}
+                          visible={v.visible}
+                          userData={userData}
+                          currentPlayerNum={this.state.currentPlayerNum}
+                          changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
                       </Col>
                     </Row>
                   )
@@ -144,7 +163,12 @@ export default class Map extends Component {
             this.state.mapData.slice(15, 27).reverse().map((v, k) => {
               if (k < 13) {
                 return (<Col span={2} className='col-item' key={v.num}>
-                  <Square num={v.num} visible={v.visible} userData={userData} currentPlayerNum={this.state.currentPlayerNum} />
+                  <Square
+                    num={v.num}
+                    visible={v.visible}
+                    userData={userData}
+                    currentPlayerNum={this.state.currentPlayerNum}
+                    changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
                 </Col>)
               }
             })
