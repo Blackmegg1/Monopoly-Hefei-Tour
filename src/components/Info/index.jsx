@@ -20,7 +20,7 @@ export default class Info extends Component {
                         <List.Item>
                             <List.Item.Meta
                                 title={'Player' + (item.num + 1)}
-                                description={`有${item.price}￥`}
+                                description={`有${item.price}$`}
                             />
                             <Tag icon={<UserOutlined />} color={item.userColor}>
                             </Tag>

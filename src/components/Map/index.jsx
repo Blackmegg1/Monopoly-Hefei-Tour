@@ -9,36 +9,36 @@ import Dice from '../Dice'
 import './index.css'
 
 let mapData = [
-  { num: 0, visible: ['visble', 'visble', 'visble', 'visble'] },
-  { num: 1, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 2, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 3, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 4, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 5, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 6, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 7, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 8, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 9, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 10, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 11, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 12, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 13, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 14, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 15, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 16, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 17, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 18, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 19, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 20, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 21, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 22, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 23, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 24, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 25, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 26, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 27, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 28, visible: ['hidden', 'hidden', 'hidden', 'hidden'] },
-  { num: 29, visible: ['hidden', 'hidden', 'hidden', 'hidden'] }
+  { num: 0, visible: ['visble', 'visble', 'visble', 'visble'], name: '起点', type: 'event', price: '' },
+  { num: 1, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '安徽大学', type: 'place', price: '2500' },
+  { num: 2, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '合肥工业大学', type: 'place', price: '3000' },
+  { num: 3, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '安医大二附院', type: 'place', price: '4000' },
+  { num: 4, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '省博物院', type: 'place', price: '7500' },
+  { num: 5, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '合肥大剧院', type: 'place', price: '7000' },
+  { num: 6, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '奇遇', type: 'event', price: '' },
+  { num: 7, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '大蜀山', type: 'place', price: '4500' },
+  { num: 8, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '科学岛', type: 'place', price: '10000' },
+  { num: 9, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '安徽农业大学', type: 'place', price: '2000' },
+  { num: 10, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '奇遇', type: 'event', price: '' },
+  { num: 11, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '合肥火车站', type: 'place', price: '6000' },
+  { num: 12, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '之心城', type: 'place', price: '10000' },
+  { num: 13, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '逍遥津', type: 'place', price: '6500' },
+  { num: 14, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '步行街', type: 'place', price: '8000' },
+  { num: 15, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '中国科技大学', type: 'place', price: '3500' },
+  { num: 16, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '工大老区', type: 'place', price: '3300' },
+  { num: 17, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '罍街', type: 'place', price: '4000' },
+  { num: 18, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '奇遇', type: 'event', price: '' },
+  { num: 19, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '合肥南站', type: 'place', price: '7000' },
+  { num: 20, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '国际会展中心', type: 'place', price: '9900' },
+  { num: 21, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '合肥融创茂', type: 'place', price: '6000' },
+  { num: 22, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '国家森林公园', type: 'place', price: '3500' },
+  { num: 23, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '合肥市政府', type: 'place', price: '15000' },
+  { num: 24, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '星达城', type: 'place', price: '6000' },
+  { num: 25, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '奇遇', type: 'event', price: '' },
+  { num: 26, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '中环城', type: 'place', price: '8000' },
+  { num: 27, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '明珠广场', type: 'place', price: '4000' },
+  { num: 28, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '翡翠迎宾馆', type: 'place', price: '20000' },
+  { num: 29, visible: ['hidden', 'hidden', 'hidden', 'hidden'], name: '安徽建筑大学', type: 'place', price: '2200' }
 ]
 
 let userData = [
@@ -93,6 +93,9 @@ export default class Map extends Component {
                   <Square
                     num={v.num}
                     visible={v.visible}
+                    name={v.name}
+                    type={v.type}
+                    price={v.price}
                     userData={userData}
                     currentPlayerNum={this.state.currentPlayerNum}
                     changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
@@ -115,6 +118,9 @@ export default class Map extends Component {
                         <Square
                           num={v.num}
                           visible={v.visible}
+                          name={v.name}
+                          type={v.type}
+                          price={v.price}
                           userData={userData}
                           currentPlayerNum={this.state.currentPlayerNum}
                           changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
@@ -144,6 +150,9 @@ export default class Map extends Component {
                         <Square
                           num={v.num}
                           visible={v.visible}
+                          name={v.name}
+                          type={v.type}
+                          price={v.price}
                           userData={userData}
                           currentPlayerNum={this.state.currentPlayerNum}
                           changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
@@ -166,6 +175,9 @@ export default class Map extends Component {
                   <Square
                     num={v.num}
                     visible={v.visible}
+                    name={v.name}
+                    type={v.type}
+                    price={v.price}
                     userData={userData}
                     currentPlayerNum={this.state.currentPlayerNum}
                     changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />

@@ -23,7 +23,7 @@ export default class Square extends Component {
 
     componentDidUpdate(prevp, prevs) {
         if (this.props.visible[prevp.currentPlayerNum] === 'visible' && this.state.owner === -1) {
-            this.props.changeAssets([prevp.currentPlayerNum], [-(this.props.num * 100)])
+            this.props.changeAssets([prevp.currentPlayerNum], [-(this.props.price)])
             if (this.state === prevs) {
                 this.setState({
                     owner: prevp.currentPlayerNum,
@@ -32,19 +32,19 @@ export default class Square extends Component {
             }
         }
         else if (this.props.visible[prevp.currentPlayerNum] === 'visible' && this.props.currentPlayerNum !== prevp.currentPlayerNum && prevs.owner !== prevp.currentPlayerNum) {
-            this.props.changeAssets([prevp.currentPlayerNum, prevs.owner], [-(this.props.num * 50), this.props.num * 50])
-            console.log('prevp', prevp)
-            console.log('props', this.props)
+            this.props.changeAssets([prevp.currentPlayerNum, prevs.owner], [-(this.props.price * 0.2), this.props.price * 0.2])
+            // console.log('prevp', prevp)
+            // console.log('props', this.props)
         }
     }
 
     render() {
         return (
             <Card
-                title={`编号:${this.props.num},价格:${this.props.num * 100}$`}
+                title={this.props.type === 'place' ? `${this.props.name} ${this.props.price}$` : `${this.props.name}`}
                 bordered={false}
                 className="Square"
-                headStyle={{ 'fontSize': '14px', 'padding': '1px', 'backgroundColor': `${this.state.ownerColor}` }}
+                headStyle={{ 'textAlign': 'center', 'fontSize': '12px', 'padding': '0px', 'backgroundColor': `${this.state.ownerColor}` }}
                 bodyStyle={{ 'padding': '5px', 'height': "12vh" }}
             // bodyStyle={{ 'background': `url(${house1}) no-repeat` }}
             >
