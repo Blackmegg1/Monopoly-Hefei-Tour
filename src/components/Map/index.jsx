@@ -5,6 +5,7 @@ import Square from '../Square'
 import Info from '../Info'
 import Step from '../Step/index.jsx'
 import Dice from '../Dice'
+import ConfirmBox from '../ConfirmBox'
 
 import './index.css'
 
@@ -57,11 +58,12 @@ export default class Map extends Component {
       mapData: mapData,
       userData: userData,
       currentPlayerNum: 0,
-      players: userData.length //玩家数量
+      players: userData.length, //玩家数量
+      confirmBoxVisible: true, //控制弹窗
     }
   }
 
-  changeAssets(palyerNum, gap) {
+  changeAssets(palyerNum, gap) { //修改玩家资产
     let newUserData = this.state.userData
     palyerNum.map((v, i) => {
       newUserData[v].price += gap[i]
@@ -81,6 +83,10 @@ export default class Map extends Component {
     this.setState({ diceNum: newDiceNum, mapData: newMapData, currentPlayerNum: (currentPlayerNum + 1) % (this.state.players) })
   }
 
+  changeConfirmBoxVisible(v) { //控制弹窗
+    this.setState({ confirmBoxVisible: v })
+  }
+
   render() {
     return (
       <div>
@@ -98,7 +104,9 @@ export default class Map extends Component {
                     price={v.price}
                     userData={userData}
                     currentPlayerNum={this.state.currentPlayerNum}
-                    changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
+                    changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} 
+                    changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)}
+                    />
                 </Col>)
               }
             })
@@ -123,7 +131,9 @@ export default class Map extends Component {
                           price={v.price}
                           userData={userData}
                           currentPlayerNum={this.state.currentPlayerNum}
-                          changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
+                          changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)}
+                          changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)}
+                        />
                       </Col>
                     </Row>)
                 }
@@ -136,6 +146,8 @@ export default class Map extends Component {
             <Info userData={this.state.userData} />
             <Step currentPlayerNum={this.state.currentPlayerNum} players={this.state.players} />
             <Dice getDiceNum={(n) => this.getDiceNum(n)} />
+            <ConfirmBox confirmBoxVisible={this.state.confirmBoxVisible}
+              changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)} />
           </Col>
 
 
@@ -155,7 +167,9 @@ export default class Map extends Component {
                           price={v.price}
                           userData={userData}
                           currentPlayerNum={this.state.currentPlayerNum}
-                          changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
+                          changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} 
+                          changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)}
+                          />
                       </Col>
                     </Row>
                   )
@@ -180,7 +194,9 @@ export default class Map extends Component {
                     price={v.price}
                     userData={userData}
                     currentPlayerNum={this.state.currentPlayerNum}
-                    changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} />
+                    changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} 
+                    changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)}
+                    />
                 </Col>)
               }
             })

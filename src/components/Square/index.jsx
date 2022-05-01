@@ -9,6 +9,7 @@ import house1 from '../../img/house1.png'
 import house2 from '../../img/house2.png'
 import house3 from '../../img/house3.png'
 import house4 from '../../img/house4.png'
+import { type } from '@testing-library/user-event/dist/type'
 
 
 // 地图中每个格子组件
@@ -21,20 +22,28 @@ export default class Square extends Component {
         }
     }
 
+    // componentDidUpdate(prevp, prevs) {
+    //     if (this.props.visible[prevp.currentPlayerNum] === 'visible' && this.state.owner === -1) {
+    //         this.props.changeAssets([prevp.currentPlayerNum], [-(this.props.price)])
+    //         if (this.state === prevs) {
+    //             this.setState({
+    //                 owner: prevp.currentPlayerNum,
+    //                 ownerColor: this.props.userData[prevp.currentPlayerNum].userColor
+    //             })
+    //         }
+    //     }
+    //     else if (this.props.visible[prevp.currentPlayerNum] === 'visible' && this.props.currentPlayerNum !== prevp.currentPlayerNum && prevs.owner !== prevp.currentPlayerNum) {
+    //         this.props.changeAssets([prevp.currentPlayerNum, prevs.owner], [-(this.props.price * 0.2), this.props.price * 0.2])
+    //         // console.log('prevp', prevp)
+    //         // console.log('props', this.props)
+    //     }
+    // }
+
     componentDidUpdate(prevp, prevs) {
-        if (this.props.visible[prevp.currentPlayerNum] === 'visible' && this.state.owner === -1) {
-            this.props.changeAssets([prevp.currentPlayerNum], [-(this.props.price)])
-            if (this.state === prevs) {
-                this.setState({
-                    owner: prevp.currentPlayerNum,
-                    ownerColor: this.props.userData[prevp.currentPlayerNum].userColor
-                })
-            }
-        }
-        else if (this.props.visible[prevp.currentPlayerNum] === 'visible' && this.props.currentPlayerNum !== prevp.currentPlayerNum && prevs.owner !== prevp.currentPlayerNum) {
-            this.props.changeAssets([prevp.currentPlayerNum, prevs.owner], [-(this.props.price * 0.2), this.props.price * 0.2])
-            // console.log('prevp', prevp)
-            // console.log('props', this.props)
+        if (this.props.visible[prevp.currentPlayerNum] === 'visible' &&
+            this.props.type === 'place' &&
+            this.state.owner === -1) {
+            this.props.changeConfirmBoxVisible(true)
         }
     }
 
