@@ -18,3 +18,8 @@
     margin: 6px 0;
     list-style: none;
 }
+
+.textSpan {
+    font-size: 18px;
+    font-weight: 600;
+}

@@ -5,7 +5,6 @@ import Square from '../Square'
 import Info from '../Info'
 import Step from '../Step/index.jsx'
 import Dice from '../Dice'
-import ConfirmBox from '../ConfirmBox'
 
 import './index.css'
 
@@ -83,9 +82,7 @@ export default class Map extends Component {
     this.setState({ diceNum: newDiceNum, mapData: newMapData, currentPlayerNum: (currentPlayerNum + 1) % (this.state.players) })
   }
 
-  changeConfirmBoxVisible(v) { //控制弹窗
-    this.setState({ confirmBoxVisible: v })
-  }
+
 
   render() {
     return (
@@ -105,7 +102,6 @@ export default class Map extends Component {
                     userData={userData}
                     currentPlayerNum={this.state.currentPlayerNum}
                     changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} 
-                    changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)}
                     />
                 </Col>)
               }
@@ -132,7 +128,6 @@ export default class Map extends Component {
                           userData={userData}
                           currentPlayerNum={this.state.currentPlayerNum}
                           changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)}
-                          changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)}
                         />
                       </Col>
                     </Row>)
@@ -146,8 +141,6 @@ export default class Map extends Component {
             <Info userData={this.state.userData} />
             <Step currentPlayerNum={this.state.currentPlayerNum} players={this.state.players} />
             <Dice getDiceNum={(n) => this.getDiceNum(n)} />
-            <ConfirmBox confirmBoxVisible={this.state.confirmBoxVisible}
-              changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)} />
           </Col>
 
 
@@ -168,7 +161,6 @@ export default class Map extends Component {
                           userData={userData}
                           currentPlayerNum={this.state.currentPlayerNum}
                           changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} 
-                          changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)}
                           />
                       </Col>
                     </Row>
@@ -194,8 +186,7 @@ export default class Map extends Component {
                     price={v.price}
                     userData={userData}
                     currentPlayerNum={this.state.currentPlayerNum}
-                    changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)} 
-                    changeConfirmBoxVisible={(v) => this.changeConfirmBoxVisible(v)}
+                    changeAssets={(palyerNum, gap) => this.changeAssets(palyerNum, gap)}  
                     />
                 </Col>)
               }
